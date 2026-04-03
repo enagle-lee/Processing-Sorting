@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 float[] numbers = new float[100];
+int i = 0;
 
 void setup() {
   size(600, 400);
@@ -16,7 +17,22 @@ void setup() {
 void draw() {
   drawBars();
   
-  // sorting algorithm here (just one step)
+  // selection sort
+
+  float min = Float.MAX_VALUE;
+  int minIndex = i;
+  for (int j = i; j < numbers.length; j++) {
+    if (numbers[j] < min) {
+      min = numbers[j];
+      minIndex = j;
+    }
+  }
+  if (i != minIndex) {
+    float temp = numbers[i];
+    numbers[i] = min;
+    numbers[minIndex] = temp;
+  }
+  i++;
 }
 
 void drawBars() {
